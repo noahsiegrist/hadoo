@@ -19,6 +19,10 @@ common common-properties
 library
   import:              common-properties
   exposed-modules:     Hadoo.Web
+                      ,Hadoo.Helpers
+                      ,Hadoo.Board
+                      ,Hadoo.Lane
+                      ,Hadoo.State
   build-depends:       
   hs-source-dirs:      lib
 
