@@ -22,7 +22,9 @@ library
                       ,Hadoo.Helpers
                       ,Hadoo.Board
                       ,Hadoo.Lane
+                      ,Hadoo.Item
                       ,Hadoo.State
+                      ,Hadoo.Persistence
   build-depends:       
   hs-source-dirs:      lib
 

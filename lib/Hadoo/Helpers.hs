@@ -8,6 +8,7 @@ import Data.List (intersperse)
 htmlString :: String -> ActionM ()
 htmlString = html . LT.pack
 
+
 -- | Type Alias für Html Strings
 type Html = String
 
