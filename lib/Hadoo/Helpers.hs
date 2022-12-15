@@ -1,4 +1,4 @@
-module Hadoo.Helpers (htmlString, e, ea, concatArr) where
+module Hadoo.Helpers (createPage, htmlString, e, ea, concatArr, multiLineTextParam) where
 
 import Web.Scotty 
 import qualified Data.Text.Lazy as LT
@@ -32,4 +32,17 @@ multiLineTextParam paramName = fmap (filter (/='\r')) (param (LT.pack paramName)
 concatArr :: [String] -> String
 concatArr = foldr (++) "" 
 
+createPage :: String -> IO String
+createPage content = do
+    return $
+        "<!DOCTYPE html>" ++
+        ea "html" [("lang", "en")] (
+            e "head" $
+                ea "link" [("rel", "stylesheet"), ("href", "/styles.css")] ""  
+                ++ 
+                e "body" (
+                    ea "h1" [("class", "body")] "Hadoo" ++ 
+                    content
+                )
+        )
 

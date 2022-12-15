@@ -4,7 +4,7 @@ module Hadoo.Lane (laneInit) where
 
 import Web.Scotty 
 
-import Hadoo.Helpers (htmlString, ea, concatArr)
+import Hadoo.Helpers (createPage, htmlString, ea, concatArr)
 import Hadoo.State
 import Hadoo.Item (loadItems, render)
 import Control.Monad.IO.Class (liftIO)
@@ -14,14 +14,5 @@ laneInit state = do
   items <- loadItems state
   return $ 
     ea "div" [("class", "lane")] $
-      ea "div" [("class", "title")] (show state)
+      ea "div" [("class", "title")] (show state ++ " (" ++ show (length items) ++ ")" )
       ++ concatArr (map (render) items)
-    
-
-
-
-    
-
-
-    
-
